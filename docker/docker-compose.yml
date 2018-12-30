@@ -16,7 +16,7 @@ services:
     volumes:
       # edit to match your own filesystem
       - type: bind
-        source: /home/dominique/tiergarten-carmina-regression/config-repo
+        source: /home/dominique/tiergarten-carmina/config-repo
         target: /tmp/config-repo
     ports:
       - 8888:8888
