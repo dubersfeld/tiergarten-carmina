@@ -1,0 +1,27 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /
+       
+spring:        
+  cloud:
+    zookeeper:
+      connect-string: "localhost:2182"
+
+membershipRoot: /Members  
+
+websocketUrl: "ws://localhost:8089/tiergarten-websocket"
+
+# Edit to match your own file system       
+clientUrl: "/home/dominique/workspace-tiergarten-carmina-publish-2/docker"
+
+# Edit to match your own sudo password
+password: "strata15"
+
+launchCommand: "sudo -S ./launchCustomer.sh"
+
+stopCommandBase: "sudo -S ./stopCustomer.sh "
+   
+startContainerUrl: "http://localhost:8089/startContainer"
+stopContainerUrl: "http://localhost:8089/stopContainer"
+    

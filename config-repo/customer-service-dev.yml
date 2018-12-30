@@ -1,0 +1,13 @@
+server:
+  port: 9090
+  servlet:
+    context-path:
+              
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://gutenberg-eureka:8761/eureka/

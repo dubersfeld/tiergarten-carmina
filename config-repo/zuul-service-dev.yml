@@ -1,0 +1,30 @@
+server:
+  port: 5555
+    
+zuul:
+  ignored-services: "*"
+  prefix: /api
+  routes:    
+    customer-service: /customer/**     
+ 
+  host:
+    connect-timeout-millis: 10000      
+      
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+ribbon:
+  ConnectTimeout:  10000
+  ReadTimeout:  10000
+    
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://gutenberg-eureka:8761/eureka/

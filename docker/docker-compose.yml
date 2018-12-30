@@ -1,0 +1,97 @@
+version: '3.4'
+
+services:
+
+  # zookeeper-server
+  zookeeper-server:
+    image: zookeeper
+    ports:
+      # host:container
+      - "2182:2181"
+
+  # tiergarten-config 
+  tiergarten-config:
+    image:
+      tiergarten/config-server
+    volumes:
+      # edit to match your own filesystem
+      - type: bind
+        source: /home/dominique/tiergarten-carmina-regression/config-repo
+        target: /tmp/config-repo
+    ports:
+      - 8888:8888
+
+  # gutenberg-eureka 
+  gutenberg-eureka:
+    image:
+      tiergarten/eureka-server
+    ports:
+      # host:container
+      - 8761:8761
+
+  # customer-service
+  customer-service-1:
+    image: tiergarten/customer-server
+    depends_on:
+      - tiergarten-config
+    ports:
+      # host:container
+      - 9090:9090
+
+    environment:
+      - CONFIGSERVER_HOST=tiergarten-config
+      - CONFIGSERVER_PORT=8888
+      - TIERGARTEN_CONFIG_URI=http://tiergarten-config:8888
+      - ZOOKEEPER_CONNECT_STRING=zookeeper-server:2181
+      - PROFILE=dev
+
+  # customer-service
+  customer-service-2:
+    image: tiergarten/customer-server
+    depends_on:
+      - tiergarten-config
+    ports:
+      # host:container
+      - 9091:9090
+
+    environment:
+      - CONFIGSERVER_HOST=tiergarten-config
+      - CONFIGSERVER_PORT=8888
+      - TIERGARTEN_CONFIG_URI=http://tiergarten-config:8888
+      - ZOOKEEPER_CONNECT_STRING=zookeeper-server:2181
+      - PROFILE=dev
+
+  # customer-service
+  customer-service-3:
+    image: tiergarten/customer-server
+    depends_on:
+      - tiergarten-config
+    ports:
+      # host:container
+      - 9092:9090
+
+    environment:
+      - CONFIGSERVER_HOST=tiergarten-config
+      - CONFIGSERVER_PORT=8888
+      - TIERGARTEN_CONFIG_URI=http://tiergarten-config:8888
+      - ZOOKEEPER_CONNECT_STRING=zookeeper-server:2181
+      - PROFILE=dev
+
+  # zuul-service
+  zuul-service:
+    image: tiergarten/zuul-server
+    depends_on:
+      - tiergarten-config
+    ports:
+      # host:container
+      - 5555:5555
+
+    environment:
+      - CONFIGSERVER_HOST=tiergarten-config
+      - CONFIGSERVER_PORT=8888
+      - TIERGARTEN_CONFIG_URI=http://tiergarten-config:8888
+      - PROFILE=dev
+
+
+
+
