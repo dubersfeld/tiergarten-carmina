@@ -16,7 +16,7 @@ websocketUrl: "ws://localhost:8089/tiergarten-websocket"
 clientUrl: "/home/dominique/workspace-tiergarten-carmina-publish-2/docker"
 
 # Edit to match your own sudo password
-password: "strata15"
+password: "mypassword"
 
 launchCommand: "sudo -S ./launchCustomer.sh"
 
