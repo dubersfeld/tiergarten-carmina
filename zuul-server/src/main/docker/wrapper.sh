@@ -10,7 +10,7 @@ done
 echo "Config Server $CONFIGSERVER_HOST up and running at $CONFIGSERVER_PORT"
 
 echo "********************************************************"
-echo "Starting Gutenberg Zuul Server"
+echo "Starting Tiergarten Zuul Server"
 echo "********************************************************"
 
 
