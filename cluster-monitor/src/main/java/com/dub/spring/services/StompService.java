@@ -2,12 +2,13 @@ package com.dub.spring.services;
 
 import java.util.concurrent.ExecutionException;
 
-import com.dub.spring.cluster.Cluster;
+import org.apache.zookeeper.KeeperException;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 public interface StompService {
 	
-	public void publishCluster(Cluster cluster)
-				throws InterruptedException, ExecutionException, JsonProcessingException;
+	public void publishCluster() throws InterruptedException, ExecutionException, JsonProcessingException, KeeperException; 
+	
 	
 }

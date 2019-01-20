@@ -73,11 +73,7 @@ public class ZooKeeperServiceImpl implements ZooKeeperService {
 			String item = membershipRoot + "/" + child;
 			System.out.println(item);
 			byte[] zoo_data = zooKeeper.getData(item, null, null);
-			String data = new String(zoo_data);
-			//int index = data.indexOf('@');
-			
-			//String container = data.substring(0, index);
-			
+			String data = new String(zoo_data);			
 			containers.add(data);
 		}
 				

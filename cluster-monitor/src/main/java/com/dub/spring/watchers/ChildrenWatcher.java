@@ -12,6 +12,8 @@ import org.apache.zookeeper.ZooKeeper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
+import com.dub.spring.client.MyHandler;
+import com.dub.spring.client.StompClient;
 import com.dub.spring.cluster.Cluster;
 import com.dub.spring.services.StompService;
 import com.dub.spring.services.ZooKeeperService;
@@ -32,6 +34,7 @@ public class ChildrenWatcher implements Watcher {
 	
 	@Autowired
 	private StompService stompService;
+	
 	
 	@Override
 	public void process(WatchedEvent event) {
@@ -63,8 +66,11 @@ public class ChildrenWatcher implements Watcher {
 				
 				try {
 					// publish here
-					stompService.publishCluster(cluster);
-				} catch (JsonProcessingException | ExecutionException e) {				
+					stompService.publishCluster();
+				} catch (JsonProcessingException e) {				
+					e.printStackTrace();
+				} catch (ExecutionException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				

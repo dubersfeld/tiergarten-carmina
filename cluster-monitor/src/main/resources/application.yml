@@ -13,10 +13,10 @@ membershipRoot: /Members
 websocketUrl: "ws://localhost:8089/tiergarten-websocket"
 
 # Edit to match your own file system       
-clientUrl: "/home/dominique/workspace-tiergarten-carmina-publish-2/docker"
+clientUrl: "/home/dominique/tiergarten-carmina/docker"
 
 # Edit to match your own sudo password
-password: "mypassword"
+password: "mysudopassword"
 
 launchCommand: "sudo -S ./launchCustomer.sh"
 
