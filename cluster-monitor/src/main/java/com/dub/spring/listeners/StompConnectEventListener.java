@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionConnectEvent;
 
-import com.dub.spring.client.StompClient;
+import com.dub.spring.stomp.StompClient;
 
 @Component
 public class StompConnectEventListener implements ApplicationListener<SessionConnectEvent> {

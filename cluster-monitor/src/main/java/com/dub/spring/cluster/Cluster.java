@@ -22,10 +22,4 @@ public class Cluster {
 		this.containers = containers;
 	}
 	
-	// for debug only remove later
-	public void display() {
-		for (String container : containers) {
-			System.out.print(" " + container);
-		}
-	}
 }

@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
-import com.dub.spring.client.StompClient;
+import com.dub.spring.stomp.StompClient;
 
 
 @Component
@@ -14,13 +14,9 @@ public class StompDisconnectEventListener implements ApplicationListener<Session
 	@Autowired
 	private StompClient stompClient;
 	
-	@Autowired
-	private StompConnectEventListener stompConnectEventListener;
-	
 	@Override
 	public void onApplicationEvent(SessionDisconnectEvent event) {
 		
 		stompClient.disconnect();
-		//stompConnectEventListener.setEnable(true);
 	}
 }

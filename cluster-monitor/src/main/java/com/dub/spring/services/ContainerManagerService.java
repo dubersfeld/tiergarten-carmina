@@ -4,13 +4,14 @@ package com.dub.spring.services;
 import java.io.IOException;
 
 import org.apache.zookeeper.KeeperException;
+import org.springframework.stereotype.Service;
 
 import com.dub.spring.cluster.Cluster;
 
-public interface ZooKeeperService {
+public interface ContainerManagerService {
 		
-	public Cluster getCluster()
-			throws KeeperException, InterruptedException;
+	//public Cluster getCluster()
+	//		throws KeeperException, InterruptedException;
 	
 	public void startContainer() 
 			throws IOException, InterruptedException;

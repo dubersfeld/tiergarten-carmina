@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dub.spring.services.ZooKeeperService;
+import com.dub.spring.services.ContainerManagerService;
 
 @RestController
 public class ZooKeeperEndpoint {
 		
 	@Autowired
-	private ZooKeeperService zooKeeperService;
+	private ContainerManagerService zooKeeperService;
 
 
 	@RequestMapping(value = "/startContainer",

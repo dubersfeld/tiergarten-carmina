@@ -1,4 +1,4 @@
-package com.dub.spring.client;
+package com.dub.spring.stomp;
 
 import java.util.Collections;
 import java.util.List;
